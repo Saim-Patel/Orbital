@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbital — Hidden World: underrated places, local food &amp; budget trips</title>
+<meta name="description" content="Orbital by Saim Patel. Discover underrated destinations by budget, hidden gems, local food and local tips. Plan trips, take the quiz and share your own hidden gems.">
+<meta name="author" content="Saim Patel">
+<meta name="theme-color" content="#050505">
+<meta property="og:title" content="Orbital — Hidden World">
+<meta property="og:description" content="Discover underrated places by budget, with hidden gems, local food and local tips.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Orbital — Hidden World","author":{"@type":"Person","name":"Saim Patel"},"description":"Discover underrated places by budget, with hidden gems, local food and local tips."}
+</script>
+</head>
+<body class="visuals-on">
+
+<a class="skip" href="#explore">Skip to content</a>
+<div class="aura"></div>
+<div class="stars"></div>
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <a href="#top" class="logo">ORBITAL <span>// HIDDEN WORLD</span></a>
+  <ul class="nav-links">
+    <li><a href="#explore">Explore</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+    <li><a href="#food">Food</a></li>
+    <li><a href="#planner">My Orbit <b class="count" id="savedCount">0</b></a></li>
+    <li><a href="#community">Community</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="icon-btn" id="searchBtn" aria-label="Search destinations (Ctrl+K)" title="Search (Ctrl+K)">⌕</button>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#explore">Explore</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#food">Food</a>
+  <a href="#planner">My Orbit</a>
+  <a href="#community">Community</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="stage">
+    <div class="parallax">
+      <div class="ring-tilt">
+        <div class="ring" id="ring"></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-text">
+    <div class="eyebrow">HIDDEN WORLD</div>
+    <h1>ORBITAL</h1>
+    <p>Discover underrated places by budget. Hidden gems, local food and tips from people who live there.</p>
+    <div class="hero-cta">
+      <a href="#explore" class="btn">EXPLORE BY BUDGET</a>
+      <button class="btn btn-ghost" id="surpriseBtn" type="button">SURPRISE ME</button>
+    </div>
+  </div>
+  <div class="hero-controls">
+    <div class="ctrl">
+      <span class="ctrl-label">VISUALS</span>
+      <button class="switch" id="visualsSwitch" role="switch" aria-checked="true" aria-label="Toggle image visuals"><span class="knob"></span></button>
+    </div>
+    <div class="ctrl">
+      <span class="ctrl-label">ZOOM</span>
+      <button class="switch" id="zoomSwitch" role="switch" aria-checked="false" aria-label="Zoom ring larger"><span class="knob"></span></button>
+    </div>
+    <div class="ctrl">
+      <span class="ctrl-label">SPACING</span>
+      <div class="spacing" role="group" aria-label="Ring spacing">
+        <button class="spacing-step" data-space="0" aria-label="Tight spacing"><i></i></button>
+        <button class="spacing-step is-active" data-space="1" aria-label="Default spacing"><i></i></button>
+        <button class="spacing-step" data-space="2" aria-label="Wide spacing"><i></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>SCROLL</span><div class="line"></div></div>
+</header>
+
+<section class="stats-strip reveal" aria-label="Orbital at a glance">
+  <div><b id="statPlaces">0</b><span>Hidden places</span></div>
+  <div><b id="statGems">0</b><span>Hidden gems</span></div>
+  <div><b id="statDishes">0</b><span>Local dishes</span></div>
+  <div><b id="statCommunity">0</b><span>Community tips</span></div>
+</section>
+
+<!-- EXPLORE BY BUDGET -->
+<section class="section" id="explore">
+  <div class="section-head reveal">
+    <div class="eyebrow">// 01 EXPLORE BY BUDGET</div>
+    <h2>Where can your money go furthest?</h2>
+    <p>Set your daily budget per person, pick your style and filter by vibe, region or season. Prices are approximate and exclude travel to the destination.</p>
+  </div>
+
+  <div class="panel-box reveal">
+    <div class="filters">
+      <div class="field budget-field">
+        <label for="budgetRange">Budget per person per day: <b id="budgetVal">₹2,500</b></label>
+        <input type="range" id="budgetRange" min="800" max="6000" step="100" value="2500">
+        <div class="range-scale"><span>₹800</span><span>₹6,000</span></div>
+      </div>
+      <div class="field">
+        <label for="styleSel">Travel style</label>
+        <select id="styleSel">
+          <option value="low">Backpacker</option>
+          <option value="mid" selected>Comfortable</option>
+          <option value="high">Treat yourself</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="regionSel">Region</label>
+        <select id="regionSel">
+          <option value="all">All regions</option>
+          <option>North</option><option>South</option><option>East</option><option>West</option>
+          <option>Central</option><option>Northeast</option><option>International</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="monthSel">Travel month</label>
+        <select id="monthSel"></select>
+      </div>
+      <div class="field">
+        <label for="sortSel">Sort by</label>
+        <select id="sortSel">
+          <option value="match">Best match</option>
+          <option value="hidden">Most hidden</option>
+          <option value="cheap">Cheapest</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="searchInput">Search</label>
+        <input type="search" id="searchInput" placeholder="Place, dish or state">
+      </div>
+    </div>
+    <div class="chips" id="vibeChips" role="group" aria-label="Filter by vibe"></div>
+    <div class="filter-foot">
+      <label class="check"><input type="checkbox" id="favOnly"> Saved only</label>
+      <label class="check"><input type="checkbox" id="hiddenOnly"> Only truly hidden (4★+)</label>
+      <button class="link-btn" id="resetBtn" type="button">Reset filters</button>
+      <span class="result-count" id="resultCount" aria-live="polite"></span>
+    </div>
+  </div>
+
+  <div class="cards" id="cards"></div>
+  <div class="empty" id="emptyState" hidden>No places match these filters. Try raising your budget or choosing another month.</div>
+</section>
+
+<!-- QUIZ -->
+<section class="section" id="quiz">
+  <div class="section-head reveal">
+    <div class="eyebrow">// 02 FIND YOUR ORBIT</div>
+    <h2>Not sure where to go? Take the 30-second quiz.</h2>
+    <p>Answer four quick questions and Orbital will rank the places that match your mood, budget and season.</p>
+  </div>
+  <div class="panel-box quiz reveal" id="quizBox" aria-live="polite"></div>
+</section>
+
+<!-- FOOD -->
+<section class="section" id="food">
+  <div class="section-head reveal">
+    <div class="eyebrow">// 03 LOCAL FOOD</div>
+    <h2>Eat what the locals eat.</h2>
+    <p>Every destination has a dish worth the journey. Filter by region or search for a dish.</p>
+  </div>
+  <div class="food-tools reveal">
+    <input type="search" id="foodSearch" placeholder="Search dishes, e.g. fish, millet, momo" aria-label="Search dishes">
+    <select id="foodRegion" aria-label="Filter dishes by region">
+      <option value="all">All regions</option>
+      <option>North</option><option>South</option><option>East</option><option>West</option>
+      <option>Central</option><option>Northeast</option><option>International</option>
+    </select>
+  </div>
+  <div class="food-grid" id="foodGrid"></div>
+</section>
+
+<!-- PLANNER -->
+<section class="section" id="planner">
+  <div class="section-head reveal">
+    <div class="eyebrow">// 04 MY ORBIT</div>
+    <h2>Save places and plan your budget.</h2>
+    <p>Tap the heart on any place to add it here. Your list stays in your browser. Adjust trip length and group size to get a cost estimate.</p>
+  </div>
+  <div class="panel-box reveal">
+    <div class="planner-controls">
+      <div class="field"><label for="plDays">Days per place</label><input type="number" id="plDays" min="1" max="30" value="4"></div>
+      <div class="field"><label for="plPeople">Travelers</label><input type="number" id="plPeople" min="1" max="20" value="2"></div>
+      <div class="field">
+        <label for="plStyle">Style</label>
+        <select id="plStyle"><option value="low">Backpacker</option><option value="mid" selected>Comfortable</option><option value="high">Treat yourself</option></select>
+      </div>
+      <div class="field"><label for="plTravel">Travel cost per person (₹)</label><input type="number" id="plTravel" min="0" step="500" value="4000"></div>
+    </div>
+    <div id="plannerList" class="planner-list"></div>
+    <div class="planner-total" id="plannerTotal"></div>
+    <div class="planner-actions">
+      <button class="btn btn-sm" id="copyPlan" type="button">COPY PLAN</button>
+      <button class="btn btn-sm btn-ghost" id="printPlan" type="button">PRINT</button>
+      <button class="btn btn-sm btn-ghost" id="clearPlan" type="button">CLEAR</button>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="section" id="community">
+  <div class="section-head reveal">
+    <div class="eyebrow">// 05 COMMUNITY</div>
+    <h2>Share a hidden gem.</h2>
+    <p>Know a place, dish or shortcut nobody talks about? Add it. Entries appear below and are saved in this browser. Upvote the ones you like.</p>
+  </div>
+  <div class="community-grid">
+    <form class="panel-box reveal" id="gemForm" novalidate>
+      <div class="field"><label for="gPlace">Place</label><input id="gPlace" list="placeList" placeholder="e.g. Chopta or any town" required maxlength="60"><datalist id="placeList"></datalist></div>
+      <div class="field"><label for="gTitle">Title</label><input id="gTitle" placeholder="Short headline" required maxlength="80"></div>
+      <div class="field">
+        <label for="gCat">Category</label>
+        <select id="gCat"><option>Hidden gem</option><option>Food</option><option>Local tip</option><option>Culture</option><option>Budget hack</option><option>Warning</option></select>
+      </div>
+      <div class="field"><label for="gNote">Details</label><textarea id="gNote" rows="4" placeholder="What makes it special? How do you reach it? Approx cost?" required maxlength="500"></textarea><small id="gCount">0 / 500</small></div>
+      <div class="field"><label for="gName">Your name (optional)</label><input id="gName" maxlength="30" placeholder="Anonymous"></div>
+      <div class="field">
+        <label>Rating</label>
+        <div class="stars-input" id="starsInput" role="radiogroup" aria-label="Rating"></div>
+      </div>
+      <p class="form-msg" id="formMsg" aria-live="polite"></p>
+      <button class="btn" type="submit">SUBMIT TO ORBITAL</button>
+    </form>
+    <div class="community-list reveal">
+      <div class="community-tools">
+        <select id="commFilter" aria-label="Filter community entries"><option value="all">All categories</option></select>
+        <select id="commSort" aria-label="Sort community entries"><option value="new">Newest</option><option value="votes">Top voted</option></select>
+        <button class="link-btn" id="exportBtn" type="button">Export JSON</button>
+      </div>
+      <div id="commList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-head reveal">
+    <div class="eyebrow">// 06 WHY ORBITAL</div>
+    <h2>Travel that rewards curiosity.</h2>
+    <p>Orbital is a hand-built travel discovery project by Saim Patel. No tracking, no sign-ups. Works offline once loaded.</p>
+  </div>
+  <div class="features">
+    <div class="feature reveal"><div class="f-index">01 // BUDGET</div><h3>Budget-first search</h3><p>Start with what you can spend and see only the places that fit, in your travel month.</p></div>
+    <div class="feature reveal"><div class="f-index">02 // LOCAL</div><h3>Local-first advice</h3><p>Hidden gems, regional dishes and respectful tips for every place, not just the Instagram spots.</p></div>
+    <div class="feature reveal"><div class="f-index">03 // YOURS</div><h3>Built with you</h3><p>Save places, plan costs and add your own discoveries for other travelers to find.</p></div>
+  </div>
+</section>
+
+<section class="cta" id="launch">
+  <div class="reveal">
+    <h2>Ready to orbit?</h2>
+    <p>The best places are rarely the loudest. Pick one and go.</p>
+    <button class="btn" id="surprise2" type="button">SURPRISE ME</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <a href="#top" class="logo">ORBITAL <span>// HIDDEN WORLD</span></a>
+  <div class="credit">
+    © <span id="year">2026</span> Orbital. Owned &amp; created by <b>Saim Patel</b>.
+    <br>Visual style inspired by the free <a href="https://www.tooplate.com/view/2167-orbital" rel="nofollow noopener" target="_blank">Tooplate Orbital</a> template.
+  </div>
+</footer>
+
+<!-- Detail modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Close">×</button>
+    <div class="modal-art" id="mArt"></div>
+    <div class="modal-body">
+      <div class="modal-top">
+        <div>
+          <div class="eyebrow" id="mMeta"></div>
+          <h3 id="mTitle"></h3>
+          <p class="modal-tag" id="mTag"></p>
+        </div>
+        <div class="modal-btns">
+          <button class="btn btn-sm" id="mSave" type="button">♡ SAVE</button>
+          <button class="btn btn-sm btn-ghost" id="mShare" type="button">SHARE</button>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" id="mTabs">
+        <button role="tab" data-tab="overview" class="on">Overview</button>
+        <button role="tab" data-tab="gems">Hidden gems</button>
+        <button role="tab" data-tab="food">Local food</button>
+        <button role="tab" data-tab="tips">Local tips</button>
+        <button role="tab" data-tab="cost">Cost</button>
+        <button role="tab" data-tab="community">Community</button>
+      </div>
+      <div class="tab-body" id="mBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Search overlay -->
+<div class="search-overlay" id="searchOverlay" hidden>
+  <div class="modal-backdrop" data-close-search></div>
+  <div class="search-box" role="dialog" aria-label="Search">
+    <input id="gSearch" type="search" placeholder="Search places, dishes, gems, states…" autocomplete="off">
+    <div id="gResults" class="g-results"></div>
+    <div class="hint">Press <kbd>Esc</kbd> to close · <kbd>Enter</kbd> to open the first result</div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
